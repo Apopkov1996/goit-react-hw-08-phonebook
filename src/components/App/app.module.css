@@ -1,0 +1,35 @@
+.wrapper {
+  height: 100vh;
+
+  margin: 0 auto;
+
+  background-image: linear-gradient(
+      rgba(154, 85, 41, 0.7),
+      rgba(94, 39, 4, 0.7)
+    ),
+    url(../../images/backgroun.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  padding: 30px 20px;
+}
+
+.main_wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 450px;
+
+  background-color: rgb(31, 122, 103, 0.7);
+  border-radius: 12px;
+  padding: 20px 10px;
+}
+
+.header {
+  margin-bottom: 25px;
+  color: #ffb740;
+  font-size: 28px;
+}
