@@ -1,19 +1,26 @@
-import { Filter } from '../Filter/Filter';
-import { ContactList } from '../ContactList/ContactList';
-import { ContactForm } from '../ContactForm/ContactForm';
+import { Contacts } from 'pages/Contacts';
 import appcss from './app.module.css';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from 'components/Layout/Layout';
+import { Home } from 'pages/Home/Home';
+import { Register } from 'pages/Register/Register';
+import { Login } from 'pages/Login/Login';
 
 export const App = () => {
   return (
     <div className={appcss.wrapper}>
-      <div className={appcss.main_wrapper}>
-        {/* <img src="../../images/phone.png" alt="sad" /> */}
-        <h1 className={appcss.header}> PhoneBook</h1>
-        <ContactForm />
-        <h2 className={appcss.header}>Contacts </h2>
-        <Filter />
-        <ContactList />
-      </div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}></Route>
+          <Route path="/contacts" element={<Contacts />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+        </Route>
+
+        <Route path="*" element={<Home />}>
+          {' '}
+        </Route>
+      </Routes>
     </div>
   );
 };
