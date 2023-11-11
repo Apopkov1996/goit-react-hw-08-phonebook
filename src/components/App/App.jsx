@@ -5,8 +5,15 @@ import { Layout } from 'components/Layout/Layout';
 import { Home } from 'pages/Home/Home';
 import { Register } from 'pages/Register/Register';
 import { Login } from 'pages/Login/Login';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshThunk } from 'redux/auth/operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
   return (
     <div className={appcss.wrapper}>
       <Routes>

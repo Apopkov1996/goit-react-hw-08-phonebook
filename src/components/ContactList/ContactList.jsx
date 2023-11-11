@@ -42,9 +42,9 @@ export const ContactList = () => {
       )}
       {filterContacts.length ? (
         <ul className={listcss.list}>
-          {filterContacts.map(({ id, name, phone }) => (
+          {filterContacts.map(({ id, name, number }) => (
             <li key={id} className={listcss.item}>
-              {name}: {phone}
+              {name}: {number}
               <button
                 className={listcss.btn}
                 onClick={() => deleteContact(id, name)}
