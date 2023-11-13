@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import logincss from './login.module.css';
@@ -7,12 +7,9 @@ import logincss from './login.module.css';
 import { toast } from 'react-toastify';
 
 import { loginThunk } from 'redux/auth/operations';
-import { selectName } from 'redux/auth/selectors';
 
 export const Login = () => {
   const dispatch = useDispatch();
-  const name = useSelector(selectName);
-  console.log(name);
 
   const { register, handleSubmit } = useForm();
 
