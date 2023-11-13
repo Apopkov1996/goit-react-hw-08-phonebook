@@ -1,15 +1,20 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { registerThunk } from 'redux/auth/operations';
+import { selectError } from 'redux/auth/selectors';
 
 export const Register = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
+  const error = useSelector(selectError);
+  const navigate = useNavigate();
 
   const submit = data => {
     dispatch(registerThunk(data));
+    navigate('/');
   };
   return (
     <div>
@@ -28,12 +33,13 @@ export const Register = () => {
           {...register('password', { required: true, minLength: 6 })}
         />
 
-        <button>LOGIN</button>
+        <button>Register</button>
         <span>
           You already have account?
           <Link to="/login">Lets login!</Link>
         </span>
       </form>
+      {error && toast.error(error)}
     </div>
   );
 };

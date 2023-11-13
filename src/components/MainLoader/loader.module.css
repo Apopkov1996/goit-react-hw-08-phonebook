@@ -1,0 +1,15 @@
+.wraper {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.loader {
+  margin: 0 auto;
+}
+
+.text {
+  color: #9a9bab;
+  font-size: 22px;
+  text-align: center;
+}

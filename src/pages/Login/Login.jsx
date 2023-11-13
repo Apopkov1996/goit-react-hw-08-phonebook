@@ -4,15 +4,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { loginThunk } from 'redux/auth/operations';
-import { selectIsLoggedIn, selectName } from 'redux/auth/selectors';
+import {
+  selectError,
+  selectIsLoggedIn,
+  selectName,
+} from 'redux/auth/selectors';
 
 export const Login = () => {
   const dispatch = useDispatch();
   const name = useSelector(selectName);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const error = useSelector(selectError);
+
   const { register, handleSubmit } = useForm();
   const submit = data => {
-    console.log(data);
     dispatch(loginThunk(data));
   };
   if (isLoggedIn) {
@@ -37,6 +42,7 @@ export const Login = () => {
           You dont have account? <Link to="/register">Lets Create it!</Link>
         </span>
       </form>
+      {error && toast.error(error)}
     </div>
   );
 };

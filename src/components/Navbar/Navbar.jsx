@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import navcss from './navbar.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectName } from 'redux/auth/selectors';
@@ -9,6 +9,12 @@ export const Navbar = () => {
   const name = useSelector(selectName);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    dispatch(logoutThunk());
+    navigate('/');
+  };
   return (
     <div className={navcss.wrapper_nav}>
       <nav className={navcss.nav_menu}>
@@ -35,7 +41,7 @@ export const Navbar = () => {
         ) : (
           <div className={navcss.div}>
             <span>{name}</span>
-            <button onClick={() => dispatch(logoutThunk())}>Exit</button>
+            <button onClick={logOut}>Exit</button>
           </div>
         )}
       </nav>
