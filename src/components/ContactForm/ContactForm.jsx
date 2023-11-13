@@ -4,7 +4,6 @@ import formcss from './contactform.module.css';
 
 import { selectContacts } from 'redux/selectors';
 import { addContactThunk } from 'redux/operations';
-
 import { toast } from 'react-toastify';
 
 export const ContactForm = () => {

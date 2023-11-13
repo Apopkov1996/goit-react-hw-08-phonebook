@@ -32,7 +32,6 @@ export const addContactThunk = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const { data } = await herokuApi.post('/contacts', body);
-      console.log(data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
