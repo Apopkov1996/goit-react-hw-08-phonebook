@@ -38,7 +38,9 @@ export const ContactList = () => {
       {error && toast.error(error)}
       {loading && <Loading />}
       {!contacts.length && !loading && !error && (
-        <p>You don't have any contacts. Please add contact.</p>
+        <p className={listcss.info}>
+          You don't have any contacts. Please add contact.
+        </p>
       )}
       {filterContacts.length ? (
         <ul className={listcss.list}>
@@ -56,7 +58,9 @@ export const ContactList = () => {
         </ul>
       ) : null}
       {filter.trim().length > 0 && !filterContacts.length && (
-        <p>We couldn't find any contacts matching your request.</p>
+        <p className={listcss.text}>
+          We couldn't find any contacts matching your request.
+        </p>
       )}
     </div>
   );

@@ -14,8 +14,14 @@ export const Filter = () => {
   };
   return (
     <label className={filcss.label}>
-      <span>Find contacts by name</span>
-      <input type="text" value={filter} onChange={onChange} />
+      <p className={filcss.text}>Find contacts by name</p>
+      <input
+        placeholder="Search contact"
+        className={filcss.input}
+        type="text"
+        value={filter}
+        onChange={onChange}
+      />
     </label>
   );
 };

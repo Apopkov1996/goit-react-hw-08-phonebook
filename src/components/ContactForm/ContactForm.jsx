@@ -45,8 +45,9 @@ export const ContactForm = () => {
   return (
     <form className={formcss.form} onSubmit={handleSubmit}>
       <label className={formcss.label}>
-        <span>Name:</span>
+        <p className={formcss.text}>Name:</p>
         <input
+          className={formcss.input}
           placeholder="Enter the name"
           type="text"
           name="name"
@@ -56,8 +57,9 @@ export const ContactForm = () => {
         />
       </label>
       <label className={formcss.label}>
-        <span>Number:</span>
+        <p className={formcss.text}>Number:</p>
         <input
+          className={formcss.input}
           placeholder="Enter the phone"
           type="tel"
           name="number"

@@ -3,7 +3,7 @@
   display: flex;
 
   max-width: 650px;
-  background-color: rgb(31, 122, 103, 0.7);
+  background-color: rgba(35, 165, 137, 0.7);
   border-radius: 12px;
   padding: 20px 10px;
   margin-bottom: 25px;
@@ -25,4 +25,24 @@
   font-size: 20px;
   text-decoration: none;
   color: #ffb740;
+}
+
+.name {
+  font-size: 20px;
+  color: rgb(227, 222, 222);
+}
+
+.button {
+  cursor: pointer;
+  background-color: #3498db;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin-left: 15px;
+  font-size: 15px;
+}
+
+.button:hover {
+  background-color: #2073b4;
 }

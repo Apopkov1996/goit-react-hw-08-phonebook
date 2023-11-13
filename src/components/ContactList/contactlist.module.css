@@ -12,11 +12,14 @@
   align-items: center;
   flex-direction: column;
   gap: 20px;
+  margin-top: 20px;
 }
 
 .item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  color: rgb(227, 222, 222);
 }
 
 .btn {
@@ -30,4 +33,14 @@
 
 .btn:hover {
   background-color: #2073b4;
+}
+
+.text {
+  font-size: 18px;
+  color: rgb(217, 119, 119);
+}
+
+.info {
+  font-size: 18px;
+  color: rgb(227, 222, 222);
 }

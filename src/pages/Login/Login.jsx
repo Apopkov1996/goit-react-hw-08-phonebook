@@ -1,4 +1,5 @@
 import React from 'react';
+import logincss from './login.module.css';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
@@ -25,22 +26,24 @@ export const Login = () => {
     return <Navigate to="/" />;
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit(submit)}>
+    <div className={logincss.main_wrapper}>
+      <form className={logincss.form} onSubmit={handleSubmit(submit)}>
         <input
+          className={logincss.input}
           placeholder="Enter the email"
           {...register('email', { required: true, minLength: 6 })}
         />
         <input
+          className={logincss.input}
           placeholder="Enter the password"
           type="password"
           {...register('password', { required: true, minLength: 6 })}
         />
 
-        <button>LOGIN</button>
-        <span>
-          You dont have account? <Link to="/register">Lets Create it!</Link>
-        </span>
+        <button className={logincss.btn}>LOGIN</button>
+        <p className={logincss.text}>
+          You don't have account? <Link to="/register">Lets Create it!</Link>
+        </p>
       </form>
       {error && toast.error(error)}
     </div>

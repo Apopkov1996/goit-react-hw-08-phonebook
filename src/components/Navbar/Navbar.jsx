@@ -40,8 +40,10 @@ export const Navbar = () => {
           </div>
         ) : (
           <div className={navcss.div}>
-            <span>{name}</span>
-            <button onClick={logOut}>Exit</button>
+            <span className={navcss.name}>{name}</span>
+            <button className={navcss.button} onClick={logOut}>
+              Exit
+            </button>
           </div>
         )}
       </nav>
