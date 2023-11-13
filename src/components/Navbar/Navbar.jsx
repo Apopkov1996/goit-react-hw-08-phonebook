@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import navcss from './navbar.module.css';
 import { useDispatch, useSelector } from 'react-redux';
+import navcss from './navbar.module.css';
+
 import { selectIsLoggedIn, selectName } from 'redux/auth/selectors';
 import { logoutThunk } from 'redux/auth/operations';
 

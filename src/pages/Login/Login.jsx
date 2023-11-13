@@ -1,30 +1,28 @@
 import React from 'react';
-import logincss from './login.module.css';
-import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import logincss from './login.module.css';
+
 import { toast } from 'react-toastify';
+
 import { loginThunk } from 'redux/auth/operations';
-import {
-  selectError,
-  selectIsLoggedIn,
-  selectName,
-} from 'redux/auth/selectors';
+import { selectName } from 'redux/auth/selectors';
 
 export const Login = () => {
   const dispatch = useDispatch();
   const name = useSelector(selectName);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const error = useSelector(selectError);
+  console.log(name);
 
   const { register, handleSubmit } = useForm();
+
   const submit = data => {
-    dispatch(loginThunk(data));
+    dispatch(loginThunk(data))
+      .unwrap()
+      .then(res => toast.success(`Hello ${res.user.name}`))
+      .catch(e => toast.error('The email or password is incorrect'));
   };
-  if (isLoggedIn) {
-    toast.success(`Hello ${name}`);
-    return <Navigate to="/" />;
-  }
+
   return (
     <div className={logincss.main_wrapper}>
       <form className={logincss.form} onSubmit={handleSubmit(submit)}>
@@ -45,7 +43,6 @@ export const Login = () => {
           You don't have account? <Link to="/register">Lets Create it!</Link>
         </p>
       </form>
-      {error && toast.error(error)}
     </div>
   );
 };

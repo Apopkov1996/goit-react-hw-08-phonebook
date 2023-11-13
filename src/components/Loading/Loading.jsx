@@ -1,4 +1,5 @@
 import React from 'react';
+
 const { ThreeDots } = require('react-loader-spinner');
 
 export const Loading = () => {

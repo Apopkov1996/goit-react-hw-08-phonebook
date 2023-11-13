@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import listcss from './contactlist.module.css';
 import { useDispatch, useSelector } from 'react-redux';
+import listcss from './contactlist.module.css';
+
 import {
   selectContacts,
   selectError,

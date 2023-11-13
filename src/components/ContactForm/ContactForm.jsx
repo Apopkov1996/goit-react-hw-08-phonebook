@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import formcss from './contactform.module.css';
 import { useDispatch, useSelector } from 'react-redux';
+import formcss from './contactform.module.css';
+
 import { selectContacts } from 'redux/selectors';
 import { addContactThunk } from 'redux/operations';
+
 import { toast } from 'react-toastify';
 
 export const ContactForm = () => {

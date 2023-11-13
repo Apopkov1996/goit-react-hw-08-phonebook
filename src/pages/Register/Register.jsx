@@ -1,21 +1,21 @@
 import React from 'react';
-import regcss from './register.module.css';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import regcss from './register.module.css';
+
 import { toast } from 'react-toastify';
+
 import { registerThunk } from 'redux/auth/operations';
-import { selectError } from 'redux/auth/selectors';
 
 export const Register = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
-  const error = useSelector(selectError);
-  const navigate = useNavigate();
 
   const submit = data => {
-    dispatch(registerThunk(data));
-    navigate('/');
+    dispatch(registerThunk(data))
+      .unwrap()
+      .catch(e => toast.error('The email or password is incorrect'));
   };
   return (
     <div className={regcss.main_wrapper}>
@@ -43,7 +43,6 @@ export const Register = () => {
           <Link to="/login">Lets login!</Link>
         </span>
       </form>
-      {error && toast.error(error)}
     </div>
   );
 };

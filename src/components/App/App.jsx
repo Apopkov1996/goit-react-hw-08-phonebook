@@ -1,17 +1,19 @@
-import { Contacts } from 'pages/Contacts';
-import appcss from './app.module.css';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import appcss from './app.module.css';
+
+import { Contacts } from 'pages/Contacts';
 import { Layout } from 'components/Layout/Layout';
 import { Home } from 'pages/Home/Home';
 import { Register } from 'pages/Register/Register';
 import { Login } from 'pages/Login/Login';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { refreshThunk } from 'redux/auth/operations';
-import { PrivateRoute } from 'hoc/PrivateRoute';
-import { PublicRoute } from 'hoc/PublicRoute';
-import { selectRefresh } from 'redux/auth/selectors';
 import { Loader } from 'components/MainLoader/Loader';
+
+import { PublicRoute } from 'hoc/PublicRoute';
+import { PrivateRoute } from 'hoc/PrivateRoute';
+import { refreshThunk } from 'redux/auth/operations';
+import { selectRefresh } from 'redux/auth/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
